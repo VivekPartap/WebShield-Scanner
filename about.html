@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | WebShield Scanner</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <div class="glass-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <h1>WebShield <span>Scanner</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="scanner.html">Scanner</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="profile.html" id="profile-nav">Profile</a></li>
+                    <li><a href="auth.html" id="auth-nav">Login</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="toggle-label"></label>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </header>
+
+        <main class="about-main">
+            <section class="about-hero">
+                <h2>About WebShield Scanner</h2>
+                <p class="subtitle">Protecting your digital assets with advanced cybersecurity technology</p>
+            </section>
+            
+            <section class="about-content">
+                <div class="about-description">
+                    <h3>Our Mission</h3>
+                    <p>WebShield Scanner was created to democratize cybersecurity by making advanced vulnerability scanning accessible to everyone. Our platform combines cutting-edge scanning engines with an intuitive interface to help you identify and fix security issues before they can be exploited.</p>
+                    
+                    <h3>Features</h3>
+                    <ul class="features-list">
+                        <li>Comprehensive vulnerability detection</li>
+                        <li>Multiple scanning engines (ZAP, OpenVAS, Nmap)</li>
+                        <li>Detailed reporting with actionable insights</li>
+                        <li>Historical scan tracking and comparison</li>
+                        <li>Continuous monitoring capabilities</li>
+                        <li>Team collaboration features</li>
+                    </ul>
+                </div>
+                
+                <div class="team-section">
+                    <h3>Our Team</h3>
+                    <p>We're a passionate group of security professionals, developers, and designers committed to making the web a safer place.</p>
+                    
+                    <div class="team-grid">
+                        <!-- Team members will be added dynamically -->
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Contact Us</h3>
+                    <p>Have questions or feedback? We'd love to hear from you.</p>
+                    
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="js/vanta-effects.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>

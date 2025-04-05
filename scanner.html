@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner | WebShield Scanner</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/scanner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="vanta-bg"></div>
+    <div class="glass-container">
+        <header class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <h1>WebShield <span>Scanner</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="scanner.html" class="active">Scanner</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="profile.html" id="profile-nav">Profile</a></li>
+                    <li><a href="auth.html" id="auth-nav">Login</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="toggle-label"></label>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </header>
+
+        <main class="scanner-main">
+            <section class="scanner-controls">
+                <h2>Website Vulnerability Scanner</h2>
+                <p class="subtitle">Enter a URL to scan for security vulnerabilities</p>
+                
+                <div class="scan-input-container">
+                    <input type="text" id="scan-url" placeholder="https://example.com" required>
+                    <button id="start-scan" class="btn-primary">Start Scan</button>
+                </div>
+                
+                <div class="scan-options">
+                    <div class="scan-mode-selector">
+                        <h4>Scan Mode:</h4>
+                        <div class="mode-options">
+                            <label class="mode-option">
+                                <input type="radio" name="scan-mode" value="zap" checked>
+                                <span class="mode-label">ZAP</span>
+                                <span class="mode-description">OWASP Top 10 vulnerabilities</span>
+                            </label>
+                            <label class="mode-option">
+                                <input type="radio" name="scan-mode" value="openvas">
+                                <span class="mode-label">OpenVAS</span>
+                                <span class="mode-description">Comprehensive vulnerability assessment</span>
+                            </label>
+                            <label class="mode-option">
+                                <input type="radio" name="scan-mode" value="nmap">
+                                <span class="mode-label">Nmap</span>
+                                <span class="mode-description">Network port scanning</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="scan-parameters">
+                        <h4>Scan Parameters:</h4>
+                        <div class="parameter-options">
+                            <label>
+                                <input type="checkbox" id="deep-scan" checked>
+                                Deep Scan
+                            </label>
+                            <label>
+                                <input type="checkbox" id="crawl-site">
+                                Crawl Entire Site
+                            </label>
+                            <label>
+                                <input type="checkbox" id="check-headers">
+                                Check Security Headers
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div id="auth-required" class="hidden">
+                <div class="auth-prompt">
+                    <h3>Authentication Required</h3>
+                    <p>You need to be logged in to use the scanner</p>
+                    <a href="auth.html" class="btn-primary">Login or Register</a>
+                </div>
+            </div>
+            
+            <section class="scan-progress hidden">
+                <h3>Scan Progress</h3>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">0%</div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">Initializing</div>
+                    <div class="step" data-step="2">Connecting</div>
+                    <div class="step" data-step="3">Scanning</div>
+                    <div class="step" data-step="4">Analyzing</div>
+                    <div class="step" data-step="5">Generating Report</div>
+                </div>
+                <div class="scan-status">
+                    <div class="status-message">Preparing to scan...</div>
+                    <div class="status-details"></div>
+                </div>
+                <button id="cancel-scan" class="btn-secondary">Cancel Scan</button>
+            </section>
+            
+            <section class="scan-results hidden">
+                <div class="results-header">
+                    <h3>Scan Results</h3>
+                    <div class="results-actions">
+                        <button id="download-report" class="btn-primary">Download Report</button>
+                        <button id="save-scan" class="btn-secondary">Save Scan</button>
+                    </div>
+                </div>
+                
+                <div class="results-summary">
+                    <div class="summary-card critical">
+                        <div class="summary-count">0</div>
+                        <div class="summary-label">Critical</div>
+                    </div>
+                    <div class="summary-card high">
+                        <div class="summary-count">0</div>
+                        <div class="summary-label">High</div>
+                    </div>
+                    <div class="summary-card medium">
+                        <div class="summary-count">0</div>
+                        <div class="summary-label">Medium</div>
+                    </div>
+                    <div class="summary-card low">
+                        <div class="summary-count">0</div>
+                        <div class="summary-label">Low</div>
+                    </div>
+                    <div class="summary-card info">
+                        <div class="summary-count">0</div>
+                        <div class="summary-label">Info</div>
+                    </div>
+                </div>
+                
+                <div class="vulnerabilities-list">
+                    <div class="list-header">
+                        <div class="header-severity">Severity</div>
+                        <div class="header-name">Vulnerability</div>
+                        <div class="header-description">Description</div>
+                        <div class="header-solution">Solution</div>
+                    </div>
+                    <div class="list-body">
+                        <!-- Vulnerabilities will be added here dynamically -->
+                    </div>
+                </div>
+                
+                <div class="security-headers">
+                    <h4>Security Headers Check</h4>
+                    <div class="headers-grid">
+                        <!-- Security headers will be added here dynamically -->
+                    </div>
+                </div>
+            </section>
+            
+            <section class="scan-visualization">
+                <div class="visualization-container">
+                    <div class="target-url"></div>
+                    <div class="scan-beam"></div>
+                    <div class="vulnerability-points"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script src="js/vanta-effects.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</body>
+</html>
